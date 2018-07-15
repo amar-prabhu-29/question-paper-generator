@@ -1,0 +1,89 @@
+<br>
+<h3 style="color:#2c3e50"><u>Subject Manager Menu</u></h3>
+<button class="btn btn-info" ng-click="hideShow(1)">Add Subject</button>
+<button class="btn btn-info" ng-click="hideShow(2)">View Subject</button>
+<button class="btn btn-info" ng-click="hideShow(3)">Edit Subject</button>
+<hr>
+
+<div id="1" style="display:block">
+    <h3 style="color:#2c3e50"><u>Add A Subject</u></h3>
+    <form class="form-group" style="max-width:250px" id="add-subject">
+        <label for="sem">Select Semister:</label>
+        <select class="form-control"  id="sem">
+            <option selected disabled value="0">Select A Semester</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <br>
+        <label for="sub-name">Subject Name:</label>
+        <input id="sub-name" class="form-control" type="text" max-length="50" placeholder="Subject Name">
+        <br>
+        <label for="sub-code">Subject Code:</label>
+        <input id="sub-code" class="form-control" type="text" max-length="50" placeholder="Subject Code">
+        <br>
+        <button class="btn btn-info" ng-click="subjectAdd()">Add Subject</button>
+    </form>
+
+
+</div>
+<div id="2" style="display:none">
+    <h3 style="color:#2c3e50"><u>View All Subjects</u></h3>
+        <label for="sem">Select Semister:</label>
+            <select class="form-control" id="v_sem" style="max-width:250px" ng-change="viewSubjects()" ng-model="viewSub">
+                <option selected disabled value="0">Select A Semister</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <h1>Subjects Table</h1>
+            Showing Subjects Of Sem: {{v_sem}}
+            <table class="table tabel-responsive">
+            <tr><td><b>Subject Title</b></td><td><b>Subject Code</b></td></tr>
+            <tr ng-repeat="sub in subjects_view">
+                <td>{{sub.name}}</td>
+                <td>{{sub.code}}</td>
+            </tr>
+            </table>
+</div>
+<div id="3" style="display:none">
+        <h3 style="color:#2c3e50"><u>Modify Subjects</u></h3>
+        <label for="sem">Select Semister:</label>
+            <select class="form-control" id="m_sem" style="max-width:250px" ng-change="modifySubjectsView()" ng-model="modifySub">
+                <option selected disabled value="0">Select A Semister</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <h1>Subjects Table</h1>
+            Showing Subjects Of Sem: {{sem}}
+            <table class="table tabel-responsive">
+            <tr><td><b>Subject Title</b></td>
+                <td><b>Subject Code</b></td>
+                <td><b>Edit Subject</b></td>
+                <td><b>Save Changes</b></td>
+                <td><b>Delete Subject</b></td></tr>
+            <tr ng-repeat="sub in subjects" ng-init="en=true">
+                <td><input id="sn{{sub.id}}" ng-disabled="en" value="{{sub.name}}"></td>
+                <td><input id="sc{{sub.id}}" ng-disabled="en" value="{{sub.code}}"></td>
+                <td><button class="btn btn-info" ng-click="en=false">Edit</button></td>
+                <td><button class="btn btn-info" ng-disabled="en" ng-click="saveChanges(sub.id)">Save Changes</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteSubject(sub.id)">Delete</button></td>
+            </tr>
+            </table>
+</div>

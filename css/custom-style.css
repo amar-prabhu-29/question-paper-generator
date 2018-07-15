@@ -1,0 +1,72 @@
+/* Body Properties */
+.body{
+}
+/* End Body Properties */
+
+/* Navigation Bar Controls */
+.navbar-custom{
+    border-bottom: 2px solid #202d3b;
+    background-color: #2c3e50;
+}
+.navbar-item{
+    margin-left: 10px;
+    margin-right:10px;
+    text-align: center;
+    border-bottom:2px solid #2c3e50;
+}
+.active{
+    border-bottom:2px solid white;
+}
+.navbar-item:hover {
+    border-bottom:2px solid white;
+    transition: 0.3s;
+    text-align: center;
+}
+nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent !important;
+}
+/* End Navigation Bar COntrols */
+
+/*Main Div Top Margin */
+.main{
+    margin-top:50px;
+}
+/*End Main Div Top Margin */
+
+/* Sidebar Starts */
+.sidebar{
+    background-color: #2c3e50;
+    height: 100vh;
+}
+.sidebar>ul>li>a{
+    color:#2c3e50;
+    text-decoration: none;
+    background-color: transparent !important;
+}
+.sidebar>ul>li>a:hover{
+    color:#2c3e50;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: white !important;
+}
+
+/* SIdebar Ends */
+
+/*login box properties */
+.login-box{
+    width:30vw;
+    border:1px solid #2c3e50;
+    border-radius:5px;
+    margin-left:30%;
+    margin-top:100px;
+    padding:0;
+}
+.box-header{
+    padding:20;
+    margin:0;
+    background-color: #2c3e50;
+    color:white;
+}
+
+/*login box Properties End */

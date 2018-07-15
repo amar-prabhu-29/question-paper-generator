@@ -1,0 +1,39 @@
+
+<br>
+<h3 ng-init="en=true" style="color:#2c3e50"><u>Question Paper Generator Menu</u></h3>
+<button class="btn btn-info" ng-click="hideShow(1)">Generate Question Paper</button>
+<hr>
+<label for="sem">Select Semester:</label>
+            <select class="form-control" id="sem" name="sem" style="width:200px" ng-change="viewSubjects()" ng-model="view_Sub">
+                <option selected disabled value="0">Select A Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <br>
+        <label for="subject">Select Subject:</label>
+        <select class="form-control"  id="subject" name="subject" style="width:200px">
+            <option selected disabled value="0">Select A Subject</option>
+            <option ng-repeat="sub in subjects_view" value="{{sub.code}}">{{sub.name}}</option>
+        </select>
+        <br>
+        <label for="exam">Select Exam Type:</label>
+        <select class="form-control"  id="exam" name="exam" style="width:200px" ng-change="en=false" ng-model="exam">
+            <option selected disabled value="0">Select A Exam</option>
+            <option value="1">1st Internal</option>
+            <option value="2">2nd Internal</option>
+            <option value="3">Semester End Exam</option>
+        </select>
+        <br>
+        <button class="btn btn-info" ng-disabled="en" ng-click="generate()">Generate Question Paper And Download</button>
+
+        <br>
+        <div ng-repeat="i in generated">
+            {{i.a}}
+            </div>
+        </div>
